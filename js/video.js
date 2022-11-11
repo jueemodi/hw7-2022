@@ -10,38 +10,37 @@ window.addEventListener("load", function() {
 	//missed something lecture 
 });
 
+//play button
 document.querySelector("#play").addEventListener("click", function() {
  	console.log("Play Video");
 	video.play(); 
-	document.querySelector("volume").innerHTML = video.volume * 100 + '%'; 
+	//volume info
+	var volume = document.querySelector("#slider").value;
+	document.querySelector("volume").innerHTML = volume + '%'; 
  });
 
+ //pause
  document.querySelector("#pause").addEventListener("click", function() {
 	console.log("Pause Video");
     video.pause(); 
 });
 
-document.querySelector("#slower").addEventListener("click", function() {
-	console.log("slow video")
-	video.playbackRate = 0.9;
-	console.log("new speed = " + video.playbackRate);
-
-});
-
-//why won't this word 
+//slower by 10%
 
 document.querySelector("#slower").addEventListener("click", function() {
 	console.log("slow video")
-	video.playbackRate = video.playbackRate * 0.9;
+	video.playbackRate *= 0.9;
 	console.log("slower speed = " + video.playbackRate);
 });
 
+//speed up by 10%
 document.querySelector("#faster").addEventListener("click", function() {
 	console.log("speed up video")
 	video.playbackRate = video.playbackRate / 0.9;
 	console.log("faster speed = " + video.playbackRate);
 });
 
+//skip fwd
 document.querySelector("#skip").addEventListener("click", function() {
 	console.log("skip 10 s ahead");
 	if (video.currentTime > 70) {
